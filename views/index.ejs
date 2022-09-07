@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Online Shop App</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+
+  <body>
+    <h1 data-position="header">Pijar Shop</h1>
+
+    <section data-position="tambah-produk">
+      <h2>Tambah produk</h2>
+
+      <form action="/produk" method="POST">
+        <input type="text" placeholder="Nama Produk" name="nama_produk" />
+        <input type="text" placeholder="Keterangan" name="keterangan" />
+		<input type="number" placeholder="Harga" name="harga" />
+		<input type="number" placeholder="Jumlah" name="jumlah" />
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <section data-position="update-produk">
+      <div>
+        <h2>Update Produk</h2>
+        <p>
+          Mengupdate data produk yang sudah ada.
+        </p>
+        <form action="/update" method="POST">
+			<input type="text" placeholder="Nama Produk" name="nama_produk" />
+			<input type="text" placeholder="Keterangan" name="keterangan" />
+			<input type="number" placeholder="Harga" name="harga" />
+			<input type="number" placeholder="Jumlah" name="jumlah" />
+			<button id="update-button">Update produk</button>
+		</form>
+      </div>
+    </section>
+
+    <section data-position="delete-produk">
+      <div>
+        <h2>Hapus Produk</h2>
+        <p>
+          Menghapus salah satu produk yang ada.
+        </p>
+		<form action="/delete" method="POST">
+			<input type="text" placeholder="Nama Produk" name="nama_produk" />
+			<button>Hapus produk</button>
+		</form>
+      </div>
+    </section>
+
+    <section data-position="produk">
+      <h2>Produk</h2>
+
+      <ul class="produk">
+        <% for(var i = 0; i < produk.length; i++) {%>
+        <li class="produk1">
+          Nama Produk : <span><%= produk[i].nama_produk %></span><br>
+          Keterangan : <span><%= produk[i].keterangan %></span><br>
+		  Harga : Rp.<span><%= produk[i].harga %></span>,-<br>
+		  Jumlah : <span><%= produk[i].jumlah %></span><br>
+        </li>
+        <% } %>
+      </ul>
+    </section>
+  </body>
+</html>
